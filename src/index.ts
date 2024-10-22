@@ -18,5 +18,10 @@ app.use(routes);
 fetchReseveData();
 app.set("port", nconf.get("PORT") || 5002);
 
+cron.schedule("*/30 * * * *", async () => {
+  console.log("updating reserve data cache every 30 mins");
+  await fetchReseveData();
+});
+
 const port = app.get("port");
 server.listen(port, () => console.log(`server started on port ${port}`));

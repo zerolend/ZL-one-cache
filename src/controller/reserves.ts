@@ -130,25 +130,17 @@ export const fetchReseveData = async () => {
       }
     })
   );
-
-  cache.set("reserve:data", data, 60 * 60);
+  const serializedData = Object.fromEntries(
+    [...data.entries()].map(([chainId, innerMap]) => [
+      chainId,
+      Object.fromEntries(innerMap.entries()),
+    ])
+  );
+  cache.set("reserve:data", serializedData, 60 * 60);
   return data;
 };
 
 export const getReserveData = async (req: Request, res: Response) => {
-  const data: any = cache.get("reserve:data");
-
-  if (data) {
-    const serializedData = Object.fromEntries(
-      [...data.entries()].map(([chainId, innerMap]) => [
-        chainId,
-        Object.fromEntries(innerMap.entries()),
-      ])
-    );
-    console.log(serializedData);
-    res.json(Array.from(data.entries()));
-  } else {
-    const fetchData = await fetchReseveData();
-    res.json(Array.from(fetchData.entries()));
-  }
+  const data: any = cache.get("reserve:data") || {};
+  res.json(data);
 };
