@@ -5,8 +5,9 @@
     "esModuleInterop": true,
     // Target latest version of ECMAScript.
     "target": "ES2019",
+    "declaration": true,
     // Process & infer types from .js files.
-    "allowJs": false,
+    "allowJs": true,
     // Enable strictNullChecks & noImplicitAny.
     "strictNullChecks": true,
     "noImplicitAny": true,
@@ -18,9 +19,9 @@
     // Import .json files
     "resolveJsonModule": true,
     "sourceMap": true,
-    "outDir": "dist",
-    "baseUrl": "."
+    "outDir": "./dist",
+    "baseUrl": ".",
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*","node_modules/**/*.d.ts" ],
   "exclude": [".templates", "node_modules"]
 }
