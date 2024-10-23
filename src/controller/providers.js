@@ -12,6 +12,7 @@ const CHAIN_IDS = {
   XLayer: 196, // OKX chain ID (adjust as necessary)
   Base: 8453,
   Zircuit: 48900,
+  Bera:80084
 };
 console.log(nconf.get("ZKSYNC_RPC_URL"));
 
@@ -43,6 +44,9 @@ const providers = {
   ),
   [CHAIN_IDS.Zircuit]: new ethers.providers.JsonRpcProvider(
     nconf.get("ZIRCUIT_RPC_URL")
+  ),
+  [CHAIN_IDS.Bera]: new ethers.providers.JsonRpcProvider(
+    nconf.get("BERA_RPC_URL")
   ),
 };
 

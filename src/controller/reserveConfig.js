@@ -18,6 +18,7 @@ const availableMarkets = [
   "legacy_base_v3",
   "legacy_zircuit_v3",
   "legacy_mainnet_rwa_v3",
+  "legacy_barito_v3"
 ];
 
 const CustomMarket = {
@@ -33,6 +34,7 @@ const CustomMarket = {
   legacy_base_v3: "legacy_base_v3",
   legacy_zircuit_v3: "legacy_zircuit_v3",
   legacy_mainnet_rwa_v3: "legacy_mainnet_rwa_v3",
+  legacy_barito_v3 :'legacy_barito_v3',
 };
 
 const marketsData = {
@@ -403,7 +405,39 @@ legacy_mainnet_btc_lrt_v3: {
         VESTING_ADDRESS: "",
         ZERO_ADDRESS: "0x2Da17fAf782ae884faf7dB2208BBC66b6E085C22",
     },
-},
+    },
+    legacy_barito_v3:{
+        marketTitle: 'Berachain Bartio',
+        chainId: 80084,
+        v3: true,
+        isAlpha: true,
+        disableCharts: true,
+        enabledFeatures: {
+          staking: false,
+          incentives: true,
+        },
+        ux: {
+          color: {
+            light:
+              'linear-gradient(270deg, rgba(255, 244, 239, 0.15) 0%, rgba(255, 172, 130, 0.15) 100%);',
+            dark: 'linear-gradient(270deg, rgba(255, 244, 239, 0.15) 0%, rgba(255, 85, 0, 0.15) 100%);\n',
+          },
+          rightImage: 'berachain',
+        },
+        tags: [{ text: 'New', color: 'green' }],
+        whiteListedIncentives: ['zero'],
+        // subgraphUrl: 'https://api.thegraph.com/subgraphs/name/aave/protocol-v3',
+        addresses: {
+          LENDING_POOL_ADDRESS_PROVIDER: '0x3fC90e521397b251D4aAA1FBeAC7cc32f25E78fa',
+          FAUCET: '0x59423CCeB710266520dB98034ff62dD1E2090E10',
+          LENDING_POOL: '0x431B8680f2BbDEB51ee366C51Db3aC60d58a3789',
+          WETH_GATEWAY: '0xCbDc0aeD7CDf2472784068abEf23a902CafABb98',
+          WALLET_BALANCE_PROVIDER: '0x81b3184A3B5d4612F2c26A53Da8D99474B91B2D2',
+          UI_POOL_DATA_PROVIDER: '0x65fc5280E838751eDafB6f171391FE0AC5C1d05a',
+          UI_INCENTIVE_DATA_PROVIDER: '0xa32Eb787F2A3DC1F2c2da0E5d8caE7Ff74E6fD32',
+        },
+      },
+    
 }
 
 module.exports = {
