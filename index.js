@@ -12,5 +12,5 @@ if (
   nconf.get("NODE_ENV") === "production" ||
   process.env.NODE_ENV === "production"
 )
-  require("./dist/index.js");
+  require("./src/index.js");
 else require("./src/index.js");
