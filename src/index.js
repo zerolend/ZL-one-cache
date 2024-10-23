@@ -17,7 +17,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(routes);
 
 fetchReseveData();
-console.log(nconf.get("PORT"));
 
 app.set("port", nconf.get("PORT") || 5006);
 
