@@ -7,13 +7,6 @@ const express = require("express");
 const nconf = require("nconf");
 const routes = require("./routes");
 const { fetchReseveData } = require("./controller/reserves");
-const path = require("path");
-
-nconf
-  .argv()
-  .env()
-  .file({ file: path.resolve(__dirname, "./config.json") });
-
 
 const app = express();
 const server = http.Server(app);
@@ -24,7 +17,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(routes);
 
 fetchReseveData();
-app.set("port", nconf.get("PORT") || 5002);
+console.log(nconf.get("PORT"));
+
+app.set("port", nconf.get("PORT") || 5006);
 
 cron.schedule("*/30 * * * *", async () => {
   console.log("updating reserve data cache every 30 mins");
